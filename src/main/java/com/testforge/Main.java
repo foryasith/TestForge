@@ -1,27 +1,22 @@
 package com.testforge;
 
-import java.io.*;
-import java_cup.runtime.Symbol;
-import ast.*;
+import java.io.FileReader;
 
 public class Main {
-    public static void main(String[] args) {
-        if (args.length < 1) {
-            System.err.println("Usage: java com.testforge.Main <input.test>");
-            System.exit(1);
+    public static void main(String[] args) throws Exception {
+        if (args.length == 0) {
+            System.out.println("Usage: java com.testlangpp.Main <inputfile.test>");
+            return;
         }
 
-        try (FileReader reader = new FileReader(args[0])) {
-            TestForgeScanner scanner = new TestForgeScanner(reader);
-            Parser parser = new Parser(scanner);
-            Symbol result = parser.parse();
-            Program program = (Program) result.value;
+        String filename = args[0];
+        System.out.println("Parsing file: " + filename);
 
-            System.out.println("✅ Parsed successfully!");
-            System.out.println("Tests found: " + program.getTests().size());
-            // Here you'll later generate GeneratedTests.java
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        FileReader reader = new FileReader(filename);
+        TestForgeScanner scanner = new TestForgeScanner(reader);
+        Parser parser = new Parser(scanner);
+
+        parser.parse();
+        System.out.println("Parsing complete! GeneratedTests.java created.");
     }
 }

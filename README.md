@@ -31,44 +31,30 @@
 
 
 TestForge/
-
-│
-
-├── lib/			 # Contains CUP and JFlex JARs
-
+├── lib/
+│   ├── java-cup-11b.jar
+│   └── jflex-full-1.9.1.jar
 ├── src/
-
-│ ├── main/java/
-
-│ │ ├── com/testforge/
-
-│ │ │ ├── Main.java
-
-│ │ │ ├── Parser.java
-
-│ │ │ ├── TestForgeScanner.java
-
-│ │ │ └── sym.java
-
-│ │ └── ast/			 # AST (Abstract Syntax Tree) classes
-
-│ └── test/	
-
-│ └── example.test		 # Example input file
-
-│
-
-├── Scanner.flex 		 # JFlex lexer definition
-
-├── Parser.cup 			 # CUP grammar definition
-
-└── README.md			 # Project documentation
-
-
-
-
-
-
-
+│   ├── main/java/
+│   │   ├── ast/
+│   │   │   ├── Assertion.java
+│   │   │   ├── Config.java
+│   │   │   ├── HttpMethod.java
+│   │   │   ├── Program.java
+│   │   │   ├── Request.java
+│   │   │   ├── Statement.java
+│   │   │   ├── Test.java
+│   │   │   └── Variable.java
+│   │   └── com/testforge/
+│   │       ├── Main.java
+│   │       ├── Parser.java
+│   │       ├── sym.java
+│   │       ├── TestForgeScanner.java
+│   │       ├── Parser.cup
+│   │       └── Scanner.flex
+│   └── test/
+│       └── example.test
+│       └── example_1.test
+│       └── example_2.test
 
 
